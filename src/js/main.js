@@ -1,4 +1,4 @@
-import slots from "./games/slots";
+import slots from "./games/slots/slots";
 import header from "./components/header";
 import footer from "./components/footer";
 
