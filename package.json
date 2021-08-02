@@ -1,0 +1,29 @@
+{
+  "name": "chipn",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-cli serve --mode development --content-base docs/ --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GabrielGerhauser/Chipn.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GabrielGerhauser/Chipn/issues"
+  },
+  "homepage": "https://github.com/GabrielGerhauser/Chipn#readme",
+  "devDependencies": {
+    "webpack": "^5.48.0",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2"
+  }
+}
