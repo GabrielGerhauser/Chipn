@@ -34,7 +34,7 @@ html {
   
   .modal-overlay,
   .modal {
-    visibility: hidden;
+    visibility:hidden;
     opacity: 0; }
   
   /* HEADER */
@@ -114,7 +114,10 @@ html {
     height: 40px;
     margin: -20px 0 0 -20px;
     border-radius: 20px;
-    background: #000; }
+    background: rgb(241, 238, 238);
+    border-style: groove;
+    border-color: #999;
+   }
   
   .dice-one {
     margin-left: 150px; }
@@ -123,11 +126,29 @@ html {
     margin-left: 150px; }
   
   .side {
-    background-color: rgba(255, 255, 204, 0.97);
+    background-color: rgba(211, 24, 18, 0.993);
     position: absolute;
     width: 200px;
     height: 200px;
-    border: 2px solid black; }
+    border: 2px solid black; 
+    background: linear-gradient(-100deg, #cee40b,#b41c08, #05790f,  #083d9e);
+    background-size: 200% 200%;
+    animation: gradient 3s ease infinite;
+  
+  }
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
   
   .side:nth-child(1) {
     transform: translateZ(100px); }

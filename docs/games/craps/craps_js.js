@@ -1,3 +1,11 @@
+const rulesBtn = document.getElementById("btn-rules");
+const modal = document.getElementById("myModal");
+rulesBtn.addEventListener("click", function(){
+  console.log("You clicked the li element");
+  modal.style.visibility = "visible";
+  modal.style.opacity = "1";
+});
+
 // Dice Roll
 
 var winCount        = 0;
