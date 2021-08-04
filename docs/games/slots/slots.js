@@ -32,8 +32,8 @@ function closeModal(modal){
 // openModal(modal)
 
 // https://codepen.io/mog13/pen/VRBgNQ
-
-let reelContents = ["😂", "😍", "😅", "🤔", "😜", "🤐", "😱", "😵"];
+// "😂" "😍"😅🤔😜 🤐 😱 😵
+let reelContents = ["spade.png", "DonutCream.png" , "DonutGlaze.png", "DonutRainbow.png", "DonutPink.png", "diamond.png", "clover.png", "heart.png"];
 let reelLength = 3;
 let reelContainers = document.querySelectorAll(".reel-container");
 let spinningReels = [];
@@ -54,8 +54,8 @@ masterVolume.gain.setValueAtTime(0.05, audioCtx.currentTime);
 masterVolume.connect(audioCtx.destination);
 
 let getReelItem = () => {
-  let newReel = document.createElement("div");
-  newReel.innerHTML =
+  let newReel = document.createElement("img"); //div
+  newReel.src = // newReel.innerHTML
     reelContents[Math.floor(Math.random() * reelContents.length)];
   newReel.classList.add("reel-item");
   setTimeout(() => {
