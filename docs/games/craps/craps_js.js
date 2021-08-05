@@ -2,8 +2,15 @@ const rulesBtn = document.getElementById("btn-rules");
 const modal = document.getElementById("myModal");
 rulesBtn.addEventListener("click", function(){
   console.log("You clicked the li element");
-  modal.style.visibility = "visible";
-  modal.style.opacity = "1";
+  if(modal.style.visibility !== "visible"){
+    modal.style.visibility = "visible";
+    modal.style.opacity = "1";
+  }
+  else{
+    modal.style.visibility = "hidden";
+    modal.style.opacity = "0";
+  }
+  
 });
 
 // Dice Roll
