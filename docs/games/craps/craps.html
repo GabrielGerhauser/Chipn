@@ -7,6 +7,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="craps_styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,8 +17,46 @@
 
 <body>
 
+  <header>
+    <nav>
+      <ul>
+        <li><h1>Oh, Craps!</h1></li>
+        <li id='btn-rules'>
+            rules
+        </li>
+        <li id='btn-bets'>
+            bets
+        </li>
+      </ul>
+    </nav>
+  </header>
+
   <div id="the-game">
-    <div class="modal" id="myModal">
+  
+    <div id="id01" class="w3-modal">
+      <div class="w3-modal-content">
+        <div class="w3-container">
+          <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+          <p id="game-start">Game starts with a 'Come Out Roll'</p>
+          <hr/>
+          <ul id="modal-text">
+            <li>If you roll a 7 or 11 you win</li>
+            <li>If you roll a 2, 3 or 12 you lose</li>
+            <li>Roll anything else and it becomes 'The Point'</li>
+          </ul>
+          <hr/>
+           <p id="game-start">'The Point Roll'</p>
+           <hr/>
+           <ul id="modal-text">
+            <li>If you roll 'The Point' you win</li>
+            <li>If you roll a 7 you lose</li>
+            <li>Roll anything else and you roll again</li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    <!-- <div class="modal" id="myModal">
 
       <header class="modal-header">
         <h3>Rules</h3>
@@ -38,17 +77,17 @@
           </ul>
         </ol>
       </content>
-    </div> <!-- END MODAL HEADER -->
+    </div> END MODAL HEADER -->
 
-    <header id="button-header">
-      <h1>Oh, Craps!</h1>
+    <!-- <main id="button-main">
+      
       <nav>
         <ul>
           <li id='btn-rules'>rules</li>
           <li id='btn-bets'>bets</li>
         </ul>
       </nav>
-    </header>
+    </main> -->
 
 
 
