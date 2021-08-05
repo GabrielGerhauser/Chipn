@@ -32,20 +32,20 @@ function closeModal(modal){
 // openModal(modal)
 
 // https://codepen.io/mog13/pen/VRBgNQ
-// "😂" "😍"😅🤔😜 🤐 😱 😵
-let reelContents = ["spade.png", "DonutCream.png" , "DonutGlaze.png", "DonutRainbow.png", "DonutPink.png", "diamond.png", "clover.png", "heart.png"];
-let reelLength = 3;
+// 😂😍😅🤔😜🤐😱😵
+let reelContents = ["spade.png", "DonutCream.png" , "heart.png", "DonutRainbow.png", "DonutPink.png", "diamond.png", "clover.png", "Lit.png"];
+let reelLength = 3; //3
 let reelContainers = document.querySelectorAll(".reel-container");
 let spinningReels = [];
 let spinning = false;
-let reelDelay = 100;
+let reelDelay = 100; //100
 
 // reelContents[0] = new Image();
 // reelContents[0].src = "/css/images/DonutRainbow.png"
 
 let money = 100;
 let moneyToAdd = 0;
-let cost =25;
+let cost =2;
 
 let audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
@@ -55,8 +55,10 @@ masterVolume.connect(audioCtx.destination);
 
 let getReelItem = () => {
   let newReel = document.createElement("img"); //div
+  let randomNum = Math.floor(Math.random() * reelContents.length)
   newReel.src = // newReel.innerHTML
-    reelContents[Math.floor(Math.random() * reelContents.length)];
+    reelContents[randomNum];
+  newReel.id = reelContents[randomNum];
   newReel.classList.add("reel-item");
   setTimeout(() => {
     newReel.classList.add("active");
@@ -68,8 +70,8 @@ let getReelItem = () => {
 
 
 let startSpin = () => {
-  notEoughFunds();
-  if (!spinning && money > cost) { //cost
+  notEnoughFunds();
+  if (!spinning && money >= cost) { //cost
     document.querySelectorAll(".prize-item.active").forEach(s => {
       s.classList.remove("active");
     });
@@ -89,7 +91,7 @@ let startSpin = () => {
    
 };
 
- function notEoughFunds(){
+ function notEnoughFunds(){
   if(money < cost){ //cost
     alert("You do not have enough funds!");
   }
@@ -156,15 +158,16 @@ let playWinChime = amount => {
 };
 
 let findWins = () => {
+  console.log('searching for wins');
   let winline = [];
   let symbols = {};
   reelContainers.forEach(reel => {
-    let symbol = reel.children[1].innerText;
+    let symbol = reel.children[1].id; ///.innerText
     winline.push(symbol);
     if (symbols[symbol]) symbols[symbol]++;
     else symbols[symbol] = 1;
   });
-
+  console.log(`symbols: ${symbols}`);
   if (
     winline.filter(s => {
       return s === winline[0];
@@ -178,23 +181,26 @@ let findWins = () => {
     for (s in symbols) {
       if (symbols[s] == 2) {
         win(2, s);
+        console.log(`s: ${s}`);
         document
           .querySelector(".doubles")
           .children[reelContents.indexOf(s)].classList.add("active");
       }
     }
   }
+  console.log(`win lines: ${winline}`);
+
 };
 
 let win = (amountMatching, symbol) => {
   reelContainers.forEach(reel => {
-    if (reel.children[1].innerText === symbol)
+    if (reel.children[1].src === symbol) //.innerText
       reel.children[1].classList.add("win");
   });
   let winAmount = 1 + reelContents.indexOf(symbol);
   playWinChime(winAmount);
   if (amountMatching == 3) winAmount *= 100;
-
+  console.log(`win amount: ${winAmount}`);
   setChange(winAmount);
   addToMoney(winAmount);
 };
@@ -245,12 +251,12 @@ let addToPrizeTable = (combo, amount, target) => {
 
 //fill prize table
 reelContents.forEach((symbol, index) => {
-  addToPrizeTable(`${symbol}-${symbol}-❔`, index + 1, "doubles");
+  addToPrizeTable(`${symbol}-${symbol}-❔`, index + 1, "doubles"); //fix to put images into this
 });
 
 reelContents.forEach((symbol, index) => {
   addToPrizeTable(
-    `${symbol}-${symbol}-${symbol}`,
+    `${symbol}-${symbol}-${symbol}`, //fix to put images into this
     (index + 1) * 100,
     "triples"
   );
