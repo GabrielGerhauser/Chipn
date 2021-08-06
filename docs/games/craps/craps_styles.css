@@ -80,13 +80,13 @@ html {
     border-radius: 8px;
     box-shadow: 0 3px #999;
     transition: .3s;
-    text-transform: uppercase; }
+    text-transform: uppercase; } */
   
-  nav li:hover {
+  .btnstuff:hover {
     background: #999;
     cursor: pointer;
     margin-top: 16px;
-    padding: 11px 50px 9px 50px; } */
+    padding: 11px 50px 9px 50px; }
 
     header h1 {
       font-family: 'Lobster', cursive;
