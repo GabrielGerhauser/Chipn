@@ -4,155 +4,199 @@
 <!--https://codepen.io/westleyc30/pen/AXkrrY-->
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="craps_styles.css">
-    <title>Chip'n - Craps</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="craps_styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <title>Chip'n - Craps</title>
 </head>
 
 <body>
-    
-  <div class="modal-overlay"></div>
-  <div class="modal">
 
-    <header class="modal-header">
-      <h3>Rules</h3>
-    </header>
-    <content class="modal-content">
-      <ol>
-        <li>Game starts with a 'Come Out Roll'</li>
+  <header>
+    <nav>
+      <ul>
+        <li><h1>Oh, Craps!</h1></li>
+        <li class="btnstuff" id='btn-rules'>
+            rules
+        </li>
+        <li class="btnstuff" id='btn-bets'>
+            bets
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <div id="the-game">
+  
+    <div id="id01" class="w3-modal">
+      <div class="w3-modal-content">
+        <div class="w3-container">
+          <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+          <p id="game-start">Game starts with a 'Come Out Roll'</p>
+          <hr/>
+          <ul id="modal-text">
+            <li>If you roll a 7 or 11 you win</li>
+            <li>If you roll a 2, 3 or 12 you lose</li>
+            <li>Roll anything else and it becomes 'The Point'</li>
+          </ul>
+          <hr/>
+           <p id="game-start">'The Point Roll'</p>
+           <hr/>
+           <ul id="modal-text">
+            <li>If you roll 'The Point' you win</li>
+            <li>If you roll a 7 you lose</li>
+            <li>Roll anything else and you roll again</li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    <!-- <div class="modal" id="myModal">
+
+      <header class="modal-header">
+        <h3>Rules</h3>
+      </header>
+      <content class="modal-content">
+        <ol>
+          <li>Game starts with a 'Come Out Roll'</li>
           <ul>
             <li>If you roll a 7 or 11 you win</li>
             <li>If you roll a 2, 3 or 12 you lose</li>
             <li>Roll anything else and it becomes 'The Point'</li>
           </ul>
-        <li>'The Point Roll'</li>
+          <li>'The Point Roll'</li>
           <ul>
             <li>If you roll 'The Point' you win</li>
             <li>If you roll a 7 you lose</li>
             <li>Roll anything else and you roll again</li>
           </ul>
-      </ol>
-    </content>
-  </div>  <!-- END MODAL HEADER -->
+        </ol>
+      </content>
+    </div> END MODAL HEADER -->
+
+    <!-- <main id="button-main">
+      
+      <nav>
+        <ul>
+          <li id='btn-rules'>rules</li>
+          <li id='btn-bets'>bets</li>
+        </ul>
+      </nav>
+    </main> -->
 
 
-  <header>
-    <h1>Oh, Craps!</h1>
-    <nav>
-      <ul>
-        <li id='btn-rules'>rules</li>
-        <li id='btn-bets'>bets</li>
-      </ul>
-    </nav>
-  </header>
+
+    <h2 id='winOrLoss'></h2>
+
+    <button id='comeOutButton' class='roll-button'>Come Out ROLL</button>
+    <button id='pointRollButton' class='roll-button'>POINT ROLL</button>
 
 
-  <h2 id='winOrLoss'></h2>
-
-  <button id='comeOutButton' class='roll-button'>Come Out ROLL</button>
-  <button id='pointRollButton' class='roll-button'>POINT ROLL</button>
+    <h2 id="theRoll"></h2>
 
 
-  <h2 id="theRoll"></h2>
+    <ul>
+      <li id='crapWins'>Wins: 0</li>
+      <li id="crapLosses">Losses: 0</li>
+    </ul>
+
+    <div class="dice-board">
 
 
-  <ul>
-    <li id='crapWins'>Wins: 0</li>
-    <li id="crapLosses">Losses: 0</li>
-  </ul>
-
-  <div class="dice-board">
+      <div class="container-dice">
 
 
-    <div class="container-dice">
-
-
-      <div id='dice1' class="dice dice-one">
-        <div id="dice-one-side-one" class='side one'>
-          <div class="divot one-1"></div>
+        <div id='dice1' class="dice dice-one">
+          <div id="dice-one-side-one" class='side one'>
+            <div class="divot one-1"></div>
+          </div>
+          <div id="dice-one-side-two" class='side two'>
+            <div class="divot two-1"></div>
+            <div class="divot two-2"></div>
+          </div>
+          <div id="dice-one-side-three" class='side three'>
+            <div class="divot three-1"></div>
+            <div class="divot three-2"></div>
+            <div class="divot three-3"></div>
+          </div>
+          <div id="dice-one-side-four" class='side four'>
+            <div class="divot four-1"></div>
+            <div class="divot four-2"></div>
+            <div class="divot four-3"></div>
+            <div class="divot four-4"></div>
+          </div>
+          <div id="dice-one-side-five" class='side five'>
+            <div class="divot five-1"></div>
+            <div class="divot five-2"></div>
+            <div class="divot five-3"></div>
+            <div class="divot five-4"></div>
+            <div class="divot five-5"></div>
+          </div>
+          <div id="dice-one-side-six" class='side six'>
+            <div class="divot six-1"></div>
+            <div class="divot six-2"></div>
+            <div class="divot six-3"></div>
+            <div class="divot six-4"></div>
+            <div class="divot six-5"></div>
+            <div class="divot six-6"></div>
+          </div>
         </div>
-        <div id="dice-one-side-two" class='side two'>
-          <div class="divot two-1"></div>
-          <div class="divot two-2"></div>
-        </div>
-        <div id="dice-one-side-three" class='side three'>
-          <div class="divot three-1"></div>
-          <div class="divot three-2"></div>
-          <div class="divot three-3"></div>
-        </div>
-        <div id="dice-one-side-four" class='side four'>
-          <div class="divot four-1"></div>
-          <div class="divot four-2"></div>
-          <div class="divot four-3"></div>
-          <div class="divot four-4"></div>
-        </div>
-        <div id="dice-one-side-five" class='side five'>
-          <div class="divot five-1"></div>
-          <div class="divot five-2"></div>
-          <div class="divot five-3"></div>
-          <div class="divot five-4"></div>
-          <div class="divot five-5"></div>
-        </div>
-        <div id="dice-one-side-six" class='side six'>
-          <div class="divot six-1"></div>
-          <div class="divot six-2"></div>
-          <div class="divot six-3"></div>
-          <div class="divot six-4"></div>
-          <div class="divot six-5"></div>
-          <div class="divot six-6"></div>
-        </div>
-      </div>
 
 
-    </div> <!-- END container-dice -->
+      </div> <!-- END container-dice -->
 
 
-    <div class="container-dice">
+      <div class="container-dice">
 
 
-      <div id='dice2' class="dice dice-two">
-        <div id="dice-two-side-one" class='side one'>
-          <div class="divot one-1"></div>
+        <div id='dice2' class="dice dice-two">
+          <div id="dice-two-side-one" class='side one'>
+            <div class="divot one-1"></div>
+          </div>
+          <div id="dice-two-side-two" class='side two'>
+            <div class="divot two-1"></div>
+            <div class="divot two-2"></div>
+          </div>
+          <div id="dice-two-side-three" class='side three'>
+            <div class="divot three-1"></div>
+            <div class="divot three-2"></div>
+            <div class="divot three-3"></div>
+          </div>
+          <div id="dice-two-side-four" class='side four'>
+            <div class="divot four-1"></div>
+            <div class="divot four-2"></div>
+            <div class="divot four-3"></div>
+            <div class="divot four-4"></div>
+          </div>
+          <div id="dice-two-side-five" class='side five'>
+            <div class="divot five-1"></div>
+            <div class="divot five-2"></div>
+            <div class="divot five-3"></div>
+            <div class="divot five-4"></div>
+            <div class="divot five-5"></div>
+          </div>
+          <div id="dice-two-side-six" class='side six'>
+            <div class="divot six-1"></div>
+            <div class="divot six-2"></div>
+            <div class="divot six-3"></div>
+            <div class="divot six-4"></div>
+            <div class="divot six-5"></div>
+            <div class="divot six-6"></div>
+          </div>
         </div>
-        <div id="dice-two-side-two" class='side two'>
-          <div class="divot two-1"></div>
-          <div class="divot two-2"></div>
-        </div>
-        <div id="dice-two-side-three" class='side three'>
-          <div class="divot three-1"></div>
-          <div class="divot three-2"></div>
-          <div class="divot three-3"></div>
-        </div>
-        <div id="dice-two-side-four" class='side four'>
-          <div class="divot four-1"></div>
-          <div class="divot four-2"></div>
-          <div class="divot four-3"></div>
-          <div class="divot four-4"></div>
-        </div>
-        <div id="dice-two-side-five" class='side five'>
-          <div class="divot five-1"></div>
-          <div class="divot five-2"></div>
-          <div class="divot five-3"></div>
-          <div class="divot five-4"></div>
-          <div class="divot five-5"></div>
-        </div>
-        <div id="dice-two-side-six" class='side six'>
-          <div class="divot six-1"></div>
-          <div class="divot six-2"></div>
-          <div class="divot six-3"></div>
-          <div class="divot six-4"></div>
-          <div class="divot six-5"></div>
-          <div class="divot six-6"></div>
-        </div>
-      </div>
 
 
-      </div>  <!-- END container-dice 2 -->
+      </div> <!-- END container-dice 2 -->
 
 
+    </div>
   </div> <!-- END dice-board -->
+  <footer id="footer"></footer>
   <script src="craps_js.js"></script>
 </body>
 

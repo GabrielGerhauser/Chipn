@@ -1,3 +1,18 @@
+const rulesBtn = document.getElementById("btn-rules");
+const modal = document.getElementById("myModal");
+rulesBtn.addEventListener("click", function(){
+  console.log("You clicked the li element");
+  // if(modal.style.visibility !== "visible"){
+  //   modal.style.visibility = "visible";
+  //   modal.style.opacity = "1";
+  // }
+  // else{
+  //   modal.style.visibility = "hidden";
+  //   modal.style.opacity = "0";
+  // }
+  document.getElementById('id01').style.display='block';
+});
+
 // Dice Roll
 
 var winCount        = 0;

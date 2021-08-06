@@ -8,18 +8,26 @@ html {
     -moz-box-sizing: inherit;
     box-sizing: inherit;
     padding: 0;
-    margin: 0; }
+    margin-left: 20; }
   
   body {
-    background: #297A4A;
+    background-image: url("images/crapsTableLogo.png");
+    background-repeat: no-repeat;
+    background-size: 1280px;
     perspective: 1000px;
-    color: #ffffcc; }
+    color: #ffffcc; } 
   
   #pointRollButton {
     display: none; }
   
   #winOrLoss {
     text-align: center; }
+  #theRoll{
+    margin-left: 50px;
+  }  
+  #crapWins, #crapLosses{
+    margin-left: 70px;
+  }
   
   /* MODAL THINGS*/
   .modal-overlay {
@@ -34,11 +42,11 @@ html {
   
   .modal-overlay,
   .modal {
-    visibility: hidden;
+    visibility:hidden;
     opacity: 0; }
   
   /* HEADER */
-  header {
+  /* header {
     position: absolute;
     text-align: center;
     top: 0;
@@ -46,9 +54,20 @@ html {
     width: 100%;
     height: 50px; }
     header h1 {
-      float: left; }
+      font-family: 'Lobster', cursive;
+      font-size: 72px;
+      background: -webkit-linear-gradient(rgb(238, 61, 61), rgb(209, 192, 40));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color:red;
+      -webkit-text-stroke-width: .05px;
+      -webkit-text-stroke-color: rgb(247, 241, 241);
+      text-shadow: 4px 4px #2e2626;
+      float: left; 
+      margin: 0;
+    } */
+        
   
-  nav ul {
+  /* nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0; }
@@ -57,20 +76,80 @@ html {
     float: right;
     margin: 15px;
     padding: 10px 50px;
-    background: #dddddd;
+    background: #aa4f39;
     border-radius: 8px;
     box-shadow: 0 3px #999;
     transition: .3s;
-    text-transform: uppercase; }
+    text-transform: uppercase; } */
   
-  nav li:hover {
+  .btnstuff:hover {
     background: #999;
     cursor: pointer;
     margin-top: 16px;
     padding: 11px 50px 9px 50px; }
-  
+
+    header h1 {
+      font-family: 'Lobster', cursive;
+      font-size: 72px;
+      background: -webkit-linear-gradient(rgb(238, 61, 61), rgb(209, 192, 40));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color:rgb(235, 18, 18);
+      -webkit-text-stroke-width: 2px;
+      -webkit-text-stroke-color: rgb(247, 241, 241);
+      text-shadow: 5px 5px #2e2626;
+      float: left; 
+      margin: 0;
+    }
+    .w3-container{
+      background-color: cadetblue;
+      opacity:75%;
+      color: black;
+    }
+    #game-start{
+      font-family: 'Lobster', cursive;
+      font-size: 25px;
+    }
+    #modal-text{
+      margin-left: 10px;
+      list-style-type: none;
+    }
+    
+    nav{
+      margin: 0;
+      overflow: hidden;
+    }
+
+    nav ul {
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    nav ul li{
+      display: inline-block;
+      list-style-type: none;    
+    }
+
+    nav ul li#btn-bets, li#btn-rules{
+      max-height: 45px;
+      margin: 15px;
+      padding: 10px 50px;
+      background: #aa4f39;
+      border-radius: 8px;
+      box-shadow: 0 3px #999;
+      transition: .3s;
+      text-transform: uppercase;
+    }
+
+    nav ul li:first-child {
+      margin-right: auto;
+    }
+    
+
   /* BUTTONS */
-  .roll-button {
+  main, .roll-button {
+    display: block;
+    margin-bottom: 10px;
     margin: 15px auto; }
   
   button {
@@ -91,61 +170,86 @@ html {
     margin-top: 15px; }
   
   .dice-board {
+    text-align: center;
     width: 100%;
     height: 50%; }
   
   /*########## DICE THINGS ###########*/
   .container-dice {
-    display: inline-block;
-    margin-top: 100px;
+    display:inline-block;
+    margin-top: 55px;
     width: 300px;
     margin: 50px auto 0 auto; }
   
   .dice {
-    position: relative;
-    width: 200px;
-    height: 200px;
+    position:absolute;
+    width: 100px;
+    height: 100px;
     transform-style: preserve-3d;
-    transition: transform 1s; }
+    transition: transform 1s;
+    /* text-align: center; */
+  }
   
   .divot {
     position: absolute;
-    width: 40px;
-    height: 40px;
+    width: 20px;
+    height: 20px;
     margin: -20px 0 0 -20px;
     border-radius: 20px;
-    background: #000; }
+    background: rgb(241, 238, 238);
+    border-style: groove;
+    border-color: #999;
+   }
   
   .dice-one {
-    margin-left: 150px; }
+    margin-left: 100px; }
   
   .dice-two {
-    margin-left: 150px; }
+    margin-left: 100px; }
   
   .side {
-    background-color: rgba(255, 255, 204, 0.97);
+    background-color: rgba(211, 24, 18, 0.993);
     position: absolute;
-    width: 200px;
-    height: 200px;
-    border: 2px solid black; }
+    width: 100px;
+    height: 100px;
+    border: 3px solid black; 
+    border-radius: 20px; 
+    background: linear-gradient(-100deg, #cee40b,#b41c08, #05790f,  #083d9e);
+    background-size: 200% 200%;
+    animation: gradient 3s ease infinite;
+  
+  }
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
   
   .side:nth-child(1) {
     transform: translateZ(50px); }
   
   .side:nth-child(6) {
-    transform: rotateY(180deg) translateZ(100px); }
+    transform: rotateY(180deg) translateZ(50px); }
   
   .side:nth-child(3) {
-    transform: rotateY(90deg) translateZ(100px); }
+    transform: rotateY(90deg) translateZ(50px); }
   
   .side:nth-child(4) {
-    transform: rotateY(-90deg) translateZ(100px); }
+    transform: rotateY(-90deg) translateZ(50px); }
   
   .side:nth-child(5) {
-    transform: rotateX(90deg) translateZ(100px); }
+    transform: rotateX(90deg) translateZ(50px); }
   
   .side:nth-child(2) {
-    transform: rotateX(-90deg) translateZ(100px); }
+    transform: rotateX(-90deg) translateZ(50px); }
   
   .show-1 {
     transform: rotateX(720deg) rotateZ(-720deg); }
@@ -167,32 +271,32 @@ html {
   
   /* Dice Dots */
   .two-1, .three-1, .four-1, .five-1, .six-1 {
-    top: 20%;
-    left: 20%; }
+    top: 30%;
+    left: 30%; }
   
   .four-3, .five-3, .six-4 {
-    top: 20%;
-    left: 80%; }
+    top: 30%;
+    left: 90%; }
   
   .one-1, .three-2, .five-5 {
-    top: 50%;
-    left: 50%; }
+    top: 60%;
+    left: 60%; }
   
   .four-2, .five-2, .six-3 {
-    top: 80%;
-    left: 20%; }
+    top: 90%;
+    left: 30%; }
   
   .two-2, .three-3, .four-4, .five-4, .six-6 {
-    top: 80%;
-    left: 80%; }
+    top: 90%;
+    left: 90%; }
   
   .six-2 {
-    top: 50%;
-    left: 20%; }
+    top: 60%;
+    left: 30%; }
   
   .six-5 {
-    top: 50%;
-    left: 80%; }
+    top: 60%;
+    left: 90%; }
   
   /* CLEARFIX */
   .clearfix:after {

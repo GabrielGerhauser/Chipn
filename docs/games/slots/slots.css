@@ -4,6 +4,18 @@ body {
   background: #72c0c3;
   user-select: none;
   cursor: pointer;
+  background-image: url("./images/background.png");
+  background-size: 100px;
+  
+}
+#slotMachine{
+  display:flex;
+  align-items: center;
+  justify-items: center;
+  justify-content: center; 
+  width: 100%;
+  
+  
 }
 .container {
   width: 100%;
@@ -11,7 +23,11 @@ body {
   flex-direction: column;
   align-items: center;
   justify-items: center;
-  justify-content: center;
+  justify-content: center; 
+  /* background-image: url("./images/slotMachine.png"); */
+  height: 1250px;
+  background: url("./images/slotsMachine.png") no-repeat center;
+  background-size: 800px;
 }
 .title {
   font-family: "Fredoka One", cursive;
@@ -54,42 +70,53 @@ body {
   position: relative;
   display: flex;
   background-size: 56.57px 56.57px;
-  min-height: 12.5rem;
-  border: solid #1e1e1e 5px;
+  min-height: 12.5rem; 
+  /* min-height: 15rem; box size */
+  min-width: 15rem; 
+  border: solid #dbaa40 5px;
+  background-color: white;
 }
 .reel-container {
   user-select: none;
   display: flex;
   justify-content: center;
-  flex-direction: column;
-  height: 12.5rem;
+  flex-direction: column ;
+  height: 12.5rem; 
   overflow: hidden;
   align-items: center;
-  width: 4rem;
+  width: 8rem; /*4rem  witdth of each reel*/
   padding-left: 1rem;
   padding-right: 1rem;
+  border-color: #044600;
 }
 .reel-item {
-  font-size: 3rem;
+  max-height: 100px;
+  /* font-size: 3rem; */
   animation-duration: 0.1s;
   animation-name: slidein;
+  padding-top: 10px;
+  
 }
 .info {
   padding-top: 1rem;
-  padding-bottom: 3rem;}
+  padding-bottom: 3rem;
   
+}
+ 
   .allInstructions {
     color: lighten(#edfaf9 10%);
     margin-bottom: 1rem;
-    width: 500px;
+    width: 300px;
     text-align: center;
     font-family: "Fredoka One", cursive;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin-left: 15px;
+    color:white
   } 
 .instructions {
   width: 100%;
   padding: 50px 0;
   text-align: center;
-  background-color: lightblue;
   margin-top: 20px;
 }
 

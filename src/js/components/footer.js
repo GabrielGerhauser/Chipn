@@ -4,7 +4,9 @@ const footertext = document.querySelector("#footer");
 export default function footer() {
     footertext.innerHTML = `
     <hr/>
-     &copy; ${todaysDate.getFullYear()} LIT MINISTRIES!!🖕
+    <footer style="text-align:center">
+    &copy; ${todaysDate.getFullYear()} LIT MINISTRIES!!
+    </footer>
     `;
     
 }
