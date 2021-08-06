@@ -1,20 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+    <head>
+        <title>Blackjack</title>
+        <link rel="stylesheet" href="blackjack_styles.css">
+    </head>
+    <body>
 
+        <div id="table">
+            <div id="dealer-cards" class="seat">Dealer<br /></div>
+            <div id="seat1-cards" class="seat other-player">1<br /></div>
+            <div id="seat2-cards" class="seat other-player">2<br /></div>
+            <div id="seat3-cards" class="seat other-player">3<br /></div>
+            <div id="seat4-cards" class="seat">4 (Player)<br /></div>
+            <div id="seat5-cards" class="seat other-player">5<br /></div>
+            <div id="seat6-cards" class="seat other-player">6<br /></div>
+            <div id="seat7-cards" class="seat other-player">7<br /></div>
+        </div>
+        <div id="buttons">
+            <button id="deal">Deal</button>
+            <button id="hit">Hit</button>
+        </div>
 
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--<link rel="stylesheet" href="blackjack_styles.css">-->
-    <title>Chip'n - Blackjack</title>
-</head>
-
-<body>
-    <button id="new-deck">New Deck</button>
-    <button id="draw-card">Draw</button>
-    <script src="blackjack_js.js"></script>
-</body>
-
+        <script src="../../utilities/cards/deck.js"></script>
+        <script src="blackjack_js.js"></script>
+    </body>
 </html>

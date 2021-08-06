@@ -130,7 +130,7 @@ html {
     border: 2px solid black; }
   
   .side:nth-child(1) {
-    transform: translateZ(100px); }
+    transform: translateZ(50px); }
   
   .side:nth-child(6) {
     transform: rotateY(180deg) translateZ(100px); }
