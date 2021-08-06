@@ -33,7 +33,7 @@ function closeModal(modal){
 
 // https://codepen.io/mog13/pen/VRBgNQ
 // 😂😍😅🤔😜🤐😱😵
-let reelContents = ["spade.png", "DonutCream.png" , "heart.png", "DonutRainbow.png", "DonutPink.png", "diamond.png", "clover.png", "Lit.png"];
+let reelContents = ["./images/spade.png", "./images/DonutCream.png" , "./images/heart.png", "./images/DonutRainbow.png", "./images/DonutPink.png", "./images/diamond.png", "./images/clover.png", "./images/Lit.png"];
 let reelLength = 3; //3
 let reelContainers = document.querySelectorAll(".reel-container");
 let spinningReels = [];

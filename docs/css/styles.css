@@ -7,13 +7,22 @@ body {
 }
 .container {
 	margin:0 auto;
-	width:266px;
+	width:404px;
 }
 .slot-wrapper {
 	 border: 1px solid #000000;
 }
 .slot {
 	background:url("images/reel_normal.png") repeat-y; /*Taken from http://www.swish-designs.co.uk*/
+	width:86px;
+	height:70px;
+	float:left;
+	border:1px solid #000;
+	background-position:0 4px;
+}
+#main_bg
+{
+	background:url("./images/logoRed.png") repeat-y; /*Taken from http://www.swish-designs.co.uk*/
 	width:86px;
 	height:70px;
 	float:left;
@@ -51,3 +60,39 @@ button {
 	clear:both;
 }
   
+
+
+
+
+
+
+
+/*https://coder-coder.com/background-image-opacity/#:~:text=There's%20no%20CSS%20property%20that,for%20the%20background%2Dimage%20property*/
+.hero {
+    position: relative; 
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero::before {    
+      content: "";
+      background-image: url('./images/logoRed.png');
+      background-size: cover;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      opacity: 0.75;
+}
+
+#text_cont {
+  position: relative;
+  color: #ffffff;  
+  font-size: 14rem;
+  line-height: 0.9;
+  text-align: center;
+}

@@ -4,7 +4,7 @@ body {
   background: #72c0c3;
   user-select: none;
   cursor: pointer;
-  background-image: url("./background.png");
+  background-image: url("./images/background.png");
   background-size: 100px;
   
 }
@@ -24,9 +24,9 @@ body {
   align-items: center;
   justify-items: center;
   justify-content: center; 
-  /* background-image: url("./slotMachine.png"); */
+  /* background-image: url("./images/slotMachine.png"); */
   height: 1250px;
-  background: url("./slotsMachine.png") no-repeat center;
+  background: url("./images/slotsMachine.png") no-repeat center;
   background-size: 800px;
 }
 .title {
