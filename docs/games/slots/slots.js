@@ -251,12 +251,12 @@ let addToPrizeTable = (combo, amount, target) => {
 
 //fill prize table
 reelContents.forEach((symbol, index) => {
-  addToPrizeTable(`${symbol}-${symbol}-❔`, index + 1, "doubles"); //fix to put images into this
+  addToPrizeTable(`<img src="${symbol}" height="25px"/>-<img src="${symbol}" height="25px"/>-❔`, index + 1, "doubles"); //fix to put images into this
 });
 
 reelContents.forEach((symbol, index) => {
   addToPrizeTable(
-    `${symbol}-${symbol}-${symbol}`, //fix to put images into this
+    `<img src="${symbol}" height="25px"/>-<img src="${symbol}" height="25px"/>-<img src="${symbol}" height="25px"/>`, //fix to put images into this
     (index + 1) * 100,
     "triples"
   );

@@ -109,8 +109,9 @@ body {
     width: 300px;
     text-align: center;
     font-family: "Fredoka One", cursive;
-    background-color: lightblue;
+    background-color: rgba(0, 0, 0, 0.5);
     margin-left: 15px;
+    color:white
   } 
 .instructions {
   width: 100%;
