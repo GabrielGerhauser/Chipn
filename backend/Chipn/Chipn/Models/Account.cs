@@ -16,6 +16,8 @@ namespace Chipn.Models
 		public string Email {get;set;}
 		public string Password {get;set;}
 		public int Age {get;set;}
+		public virtual List<AccountGame> AccountGames { get; set; }
+
 
 		/*
 		public decimal Money {get;set;}
