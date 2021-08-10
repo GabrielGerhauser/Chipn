@@ -21,6 +21,22 @@ namespace Chipn.Controllers
             _context = context;
         }
 
+        [Route("api/[controller]/Login")]
+        public async Task<ActionResult<Account>> Login(string username, string password)
+		{
+            var user = await _context.Accounts.Where(a => a.UserName == username && a.Password == EncryptPassword(password)).FirstOrDefaultAsync();
+            if(user ==null)
+			{
+                return NotFound();
+			}
+			else
+			{
+                user.Password = "";
+                return user;
+			}
+            
+		}
+
         // GET: api/Accounts
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Account>>> GetAccount()
@@ -78,6 +94,7 @@ namespace Chipn.Controllers
         [HttpPost]
         public async Task<ActionResult<Account>> PostAccount(Account account)
         {
+            account.Password = EncryptPassword(account.Password);
             _context.Accounts.Add(account);
             await _context.SaveChangesAsync();
 
@@ -104,5 +121,22 @@ namespace Chipn.Controllers
         {
             return _context.Accounts.Any(e => e.Id == id);
         }
+
+        private string EncryptPassword(string password)
+		{
+            var hash = "";
+            //do encryption
+
+            return hash;
+		}
+
+        private string DecryptPassword(string hash)
+		{
+            var password = "";
+            
+            // decrypt
+
+            return password;
+		}
     }
 }

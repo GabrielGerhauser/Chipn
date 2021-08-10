@@ -25,5 +25,11 @@
     "webpack-cli": "^4.7.2",
     "webpack-dev-server": "^3.11.2"
   },
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "bcrypt": "^5.0.1"
+  },
+  "browser": {
+    "fs": false
+  }
 }
