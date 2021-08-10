@@ -11,7 +11,7 @@ startBtn.addEventListener("click", function() {
 
 
 export default() => {
-    console.log("Hell world.");
-    footer();
+    console.log("Hell-o, Jello World.");
     header();
+    footer();
 }

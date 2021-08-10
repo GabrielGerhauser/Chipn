@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,8 @@ namespace Chipn
 {
 	public class Startup
 	{
+		private readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
 		public Startup(IConfiguration configuration)
 		{
 			Configuration=configuration;
@@ -26,11 +29,16 @@ namespace Chipn
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
+			services.AddControllers().AddNewtonsoftJson(o =>
+			{
+				o.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+			});
 
-			services.AddControllers();
+			services.AddDbContext<ChipnDBContext>();
+
 			services.AddSwaggerGen(c =>
 			{
-				c.SwaggerDoc("v1",new OpenApiInfo { Title="Chipn",Version="v1" });
+				c.SwaggerDoc("v1",new OpenApiInfo { Title="Chip'n",Version="v1" });
 			});
 		}
 
