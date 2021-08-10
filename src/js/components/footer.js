@@ -1,12 +1,11 @@
+const footerContent = document.querySelector("#site-footer");
 const todaysDate = new Date(Date.now());
-const footertext = document.querySelector("#footer");
 
 export default function footer() {
-    footertext.innerHTML = `
+    footerContent.innerHTML = `
     <hr/>
     <footer style="text-align:center">
-    &copy; ${todaysDate.getFullYear()} LIT MINISTRIES!!
+    &copy; ${todaysDate.getFullYear()} LIT MINISTRIES!!!
     </footer>
     `;
-    
 }

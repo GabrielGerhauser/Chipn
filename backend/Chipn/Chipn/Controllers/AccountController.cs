@@ -23,7 +23,7 @@ namespace Chipn.Controllers
 
         // GET: api/Accounts
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Account>>> GetAccountSet()
+        public async Task<ActionResult<IEnumerable<Account>>> GetAccount()
         {
             return await _context.Accounts.ToListAsync();
         }
