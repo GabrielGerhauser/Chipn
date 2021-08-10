@@ -36,6 +36,15 @@ namespace Chipn
 
 			services.AddDbContext<ChipnDBContext>();
 
+			services.AddCors(options =>
+			{
+				options.AddPolicy(MyAllowSpecificOrigins, builder =>
+				{
+					builder.WithOrigins("http://localhost:8080", "https://localhost:8080").AllowAnyHeader().AllowAnyMethod();
+					builder.WithOrigins("http://localhost:8081", "https://localhost:8081").AllowAnyHeader().AllowAnyMethod();
+				});
+			});
+
 			services.AddSwaggerGen(c =>
 			{
 				c.SwaggerDoc("v1",new OpenApiInfo { Title="Chip'n",Version="v1" });
@@ -55,6 +64,7 @@ namespace Chipn
 			app.UseHttpsRedirection();
 
 			app.UseRouting();
+			app.UseCors(MyAllowSpecificOrigins);
 
 			app.UseAuthorization();
 

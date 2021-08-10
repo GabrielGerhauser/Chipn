@@ -1,25 +1,40 @@
+import * as FETCH from "../api/actions";
+
 // let userAccount = localStorage.getItem("userAccount");
-let userAccount = "jack";
+let userAccount = { Id : "1", UserName : "ChipnAdministrator", ChipCount : "5000", Email : "admin@chipn.gov", Password : "NoneOfYourBusiness", Age : "21" };
+// let userId = userAccount.Id;
 
 export default function account() {
-    if(userAccount == null) {
-        let accountDiv = document.createElement("div");
-        accountDiv.id = "account";
-        accountDiv.style.float = "right";
+    let accountDiv = document.createElement("div");
+    accountDiv.id = "account";
+    accountDiv.style.float = "right";
+
+    // const fetchedAccount = FETCH.getAccount(userAccount.Id).then((result) => {
+    //     console.log(result);
+    // });
+
+    if(userAccount == null)
+    {
         accountDiv.innerHTML = `
-            <span id="slotsNav"> Login </span>
-            
+            <button id="account-login">Log In</button>
+            <button id="account-signup">Sign Up</button>
         `;
         return accountDiv;
-    } else {
+    } else
+    {
+        FETCH.getAccount(userAccount.Id, data => {
+            console.log(data.Password);
+            if(data.Password == userAccount.Password) {
+                console.log("Success");
+            }
+        });
 
-        let accountDiv = document.createElement("div");
-        accountDiv.id = "account";
-        accountDiv.style.float = "right";
-        accountDiv.innerHTML = `
-            <span id="slotsNav"> Logout </span>
-            
+
+        accountDiv.innerHTML =`
+        Name: ${userAccount.UserName}<br />
+        Chip Count: ${userAccount.ChipCount}
         `;
         return accountDiv;
     }
 }
+
