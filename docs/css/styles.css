@@ -59,11 +59,36 @@ button {
 .clear {
 	clear:both;
 }
+.header {
+	position: relative;
+	z-index: 100;
+	top: 0;
+	left: 0;
+	margin: 0;
+	width: 100%;
+	min-width: 640px;
+	height: 50px;
+	background-color: #dedede;
+  }
+  .content {
+	position: relative;
+	left: 0;
+	right: 0;
+	overflow: hidden;
+	text-align: center;
+	background-color: lightblue;
+	margin-bottom: 50px;
+	min-width: 640px;
+	min-height: 360px;
+	max-height: 640px;
+	/*480 - header & footer*/
+  }
+  .video {
+	height: 100% !important;
+	width: auto !important;
+	max-width: 100% !important;
+  }
   
-
-
-
-
 
 
 
