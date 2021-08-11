@@ -22,9 +22,9 @@ namespace Chipn.Controllers
         }
 
         [Route("api/[controller]/Login")]
-        public async Task<ActionResult<Account>> Login(string username, string password)
+        public async Task<ActionResult<Account>> Login([FromBody]Account account)
 		{
-            var user = await _context.Accounts.Where(a => a.UserName == username && a.Password == EncryptPassword(password)).FirstOrDefaultAsync();
+            var user = await _context.Accounts.Where(a => a.UserName == account.UserName && a.Password == EncryptPassword(account.Password)).FirstOrDefaultAsync();
             if(user ==null)
 			{
                 return NotFound();
@@ -61,7 +61,7 @@ namespace Chipn.Controllers
         // PUT: api/Accounts/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutAccount(int id, Account account)
+        public async Task<IActionResult> PutAccount(int id, [FromBody]Account account)
         {
             if (id != account.Id)
             {
@@ -92,7 +92,7 @@ namespace Chipn.Controllers
         // POST: api/Accounts
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Account>> PostAccount(Account account)
+        public async Task<ActionResult<Account>> PostAccount([FromBody]Account account)
         {
             account.Password = EncryptPassword(account.Password);
             _context.Accounts.Add(account);
@@ -124,19 +124,29 @@ namespace Chipn.Controllers
 
         private string EncryptPassword(string password)
 		{
-            var hash = "";
+            //var hash = "";
             //do encryption
 
-            return hash;
+            System.Security.Cryptography.HashAlgorithm sha = System.Security.Cryptography.SHA256.Create();
+            byte[] hash = sha.ComputeHash(System.Text.Encoding.ASCII.GetBytes(password));
+
+            //hash.ToString();
+
+            return hash.ToString();
 		}
 
-        private string DecryptPassword(string hash)
+        private string VerifyPassword(string hash,string password)
 		{
-            var password = "";
+            //var password = "";
             
+            if(EncryptPassword(password)==hash)
+                return password;
+            else
+                return "";
+
             // decrypt
 
-            return password;
+            //return password;
 		}
     }
 }

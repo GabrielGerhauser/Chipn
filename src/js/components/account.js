@@ -1,10 +1,11 @@
 
 
 import * as FETCH from "../api/actions";
-import displayLoginForm from "./login";
-import displaySignupForm from "./signup";
+import {displayLoginForm,loginAccount_Submit} from "./login";
+import {displaySignupForm,createAccount_Submit} from "./signup";
+import {getCookie} from "../utilities/cookie";
 
-let userAccount = localStorage.getItem("userAccount");
+let userAccount;
 //let userAccount = { Id : "1", UserName : "ChipnAdministrator", ChipCount : "5000", Email : "admin@chipn.gov", Password : "NoneOfYourBusiness", Age : "21" };
 // let userId = userAccount.Id;
 
@@ -17,6 +18,7 @@ export function createAccountDiv() {
 }
 
 export function populateAccountDiv() {
+    userAccount=getCookie("UserId");
     const accountDiv = document.getElementById("account");
     if(userAccount == null)
     {
@@ -25,24 +27,14 @@ export function populateAccountDiv() {
             <button id="account-signup">Sign Up</button>
         `;
         // return accountDiv;
-    } else
+    }
+    else
     {
-        FETCH.getAccount(userAccount.Id, data => {
-            console.log(data);
-            if(data.password == userAccount.Password) {
-                console.log("Success");
-                accountDiv.innerHTML =`
-                Name: ${data.userName}<br />
-                Chip Count: ${data.chipCount}
-                `;
-                // return accountDiv;
-            } else {
-                console.log("Fail");
-                accountDiv.innerHTML = `
-                    <button id="account-login">Log In</button>
-                    <button id="account-signup">Sign Up</button>
-                `;
-            }
+        FETCH.getAccount(userAccount, data => {
+            accountDiv.innerHTML =`
+            Name: ${data.userName}<br />
+            Chip Count: ${data.chipCount}
+            `;
         });
     }
 }
@@ -57,21 +49,35 @@ export function displayAccountForms(){
     {
         signupButton.addEventListener('click', () => {
             accountDiv.innerHTML = displaySignupForm();
+            setupAccountForms();
         });
 
         loginButton.addEventListener('click', () => {
             accountDiv.innerHTML = displayLoginForm();
+            setupLoginForms();
         });
     }
 }
+export function setupAccountForms()
+{
+    const CreateAccount_UserName=document.getElementById("CreateAccount_UserName");
+    const CreateAccount_Email=document.getElementById("CreateAccount_Email");
+    const CreateAccount_Age=document.getElementById("CreateAccount_Age");
+    const CreateAccount_Password=document.getElementById("CreateAccount_Password");
+    const CreateAccount_ChipCount=document.getElementById("CreateAccount_ChipCount");
 
-/*const bcrypt = require('bcrypt');
-const saltRounds = 10;
-const myPlaintextPassword = 's0/\/\P4$$w0rD';
-const someOtherPlaintextPassword = 'not_bacon';
-
-bcrypt.genSalt(saltRounds, function(err, salt) {
-    bcrypt.hash(myPlaintextPassword, salt, function(err, hash) {
-        console.log(myPlaintextPassword+" | "+hash);// Store hash in your password DB.
+    const CreateAccount_Submit=document.getElementById("signup-submit");
+    CreateAccount_Submit.addEventListener("click",function(){
+        createAccount_Submit();
     });
-});*/
+}
+export function setupLoginForms()
+{
+    const LoginAccount_UserName=document.getElementById("LoginAccount_UserName");
+    const LoginAccount_Password=document.getElementById("LoginAccount_Password");
+
+    const LoginAccount_Submit=document.getElementById("login-submit");
+    LoginAccount_Submit.addEventListener("click",function(){
+        loginAccount_Submit();
+    });
+}

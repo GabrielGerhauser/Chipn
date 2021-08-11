@@ -1,6 +1,7 @@
-const accountURL = "https://localhost:44336/api/Account/";
-const gameURL = "https://localhost:44336/api/Game/";
-const accountGameURL = "https://localhost:44336/api/AccountGame/";
+export const accountURL = "https://localhost:44336/api/Account/";
+export const loginURL = "https://localhost:44336/api/Account/Login/";
+export const gameURL = "https://localhost:44336/api/Game/";
+export const accountGameURL = "https://localhost:44336/api/AccountGame/";
 
 // export function checkAccount(userId, password) {
 //     let isValid;

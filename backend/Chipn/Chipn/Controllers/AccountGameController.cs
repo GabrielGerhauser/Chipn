@@ -45,7 +45,7 @@ namespace Chipn.Controllers
         // PUT: api/AccountGames/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutAccountGame(int id, AccountGame accountGame)
+        public async Task<IActionResult> PutAccountGame(int id, [FromBody]AccountGame accountGame)
         {
             if (id != accountGame.Id)
             {
@@ -76,7 +76,7 @@ namespace Chipn.Controllers
         // POST: api/AccountGames
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<AccountGame>> PostAccountGame(AccountGame accountGame)
+        public async Task<ActionResult<AccountGame>> PostAccountGame([FromBody]AccountGame accountGame)
         {
             _context.AccountGames.Add(accountGame);
             await _context.SaveChangesAsync();
