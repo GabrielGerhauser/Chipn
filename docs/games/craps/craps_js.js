@@ -1,5 +1,6 @@
 const rulesBtn = document.getElementById("btn-rules");
 const modal = document.getElementById("myModal");
+const diceSound = document.getElementById("diceAudio");
 rulesBtn.addEventListener("click", function(){
   console.log("You clicked the li element");
   // if(modal.style.visibility !== "visible"){
@@ -32,9 +33,9 @@ var elWinOrLoss     = document.getElementById('winOrLoss');
 var elCrapsWins     = document.getElementById('crapWins');
 var elCrapsLosses   = document.getElementById('crapLosses');
 
-elComeOut.onclick   = function () {comeOutRoll();};
+elComeOut.onclick   = function () {comeOutRoll(); diceSound.play()};
 
-elPointRoll.onclick = function () {pointRoll();};
+elPointRoll.onclick = function () {pointRoll(); diceSound.play();};
 
 // Come Out Roll Function
 function comeOutRoll() {
