@@ -33,7 +33,7 @@ var elWinOrLoss     = document.getElementById('winOrLoss');
 var elCrapsWins     = document.getElementById('crapWins');
 var elCrapsLosses   = document.getElementById('crapLosses');
 
-elComeOut.onclick   = function () {comeOutRoll(); diceSound.play()};
+elComeOut.onclick   = function () {comeOutRoll(); diceSound.play();};
 
 elPointRoll.onclick = function () {pointRoll(); diceSound.play();};
 
