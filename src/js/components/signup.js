@@ -7,19 +7,17 @@ export function displaySignupForm(){
     // signupForm.style.display = "absolute";
     // signupForm.innerHTML 
     const signupForm = `
-        <form id="signup-form">
-            <label for="signup-username">Username: </label>
-            <input type="text" id="CreateAccount_UserName" />
-            <label for="signup-email">Email: </label>
-            <input type="email" id="CreateAccount_Email" />
-            <label for="signup-age">Age: </label>
-            <input type="number" id="CreateAccount_Age" />
-            <label for="signup-password">Password: </label>
-            <input type="password" id="CreateAccount_Password" />
-            <input type="hidden" id="CreateAccount_ChipCount" value="500">
-            <button id="signup-cancel">Cancel</button>
-            <button id="signup-submit" type="submit">Submit</button>
-        </form>
+        <label for="signup-username">Username: </label>
+        <input type="text" id="CreateAccount_UserName" />
+        <label for="signup-email">Email: </label>
+        <input type="email" id="CreateAccount_Email" />
+        <label for="signup-age">Age: </label>
+        <input type="number" id="CreateAccount_Age" />
+        <label for="signup-password">Password: </label>
+        <input type="password" id="CreateAccount_Password" />
+        <input type="hidden" id="CreateAccount_ChipCount" value="500">
+        <button id="signup-cancel">Cancel</button>
+        <button id="signup-submit">Submit</button>
     `;
     return signupForm;
 }

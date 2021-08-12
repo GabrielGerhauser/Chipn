@@ -26,7 +26,7 @@ namespace Chipn.Controllers
         public async Task<ActionResult<Account>> Login([FromBody]Account account)
 		{
             var user = await _context.Accounts.Where(a => a.UserName == account.UserName && a.Password == EncryptPassword(account.Password)).FirstOrDefaultAsync();
-            if(user ==null)
+            if(user == null)
 			{
                 return NotFound();
 			}
