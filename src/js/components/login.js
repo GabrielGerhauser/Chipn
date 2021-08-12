@@ -41,6 +41,7 @@ export function loginAccount_Submit()
             //do something with Cookies
             //setCookie("UserName", data.userName, .1);
             setCookie("UserId", data.id, .1);
+            location.reload();
         }
     });
 }

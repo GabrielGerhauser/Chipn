@@ -39,5 +39,6 @@ export function createAccount_Submit()
         body:JSON.stringify(RequestBody)
     }).then(response => response.json()).then(data => {
         setCookie("UserId", data.id, .1);
+        location.reload();
     });
 }
