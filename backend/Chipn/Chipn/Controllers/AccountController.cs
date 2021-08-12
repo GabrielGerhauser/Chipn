@@ -21,11 +21,12 @@ namespace Chipn.Controllers
             _context = context;
         }
 
-        [Route("api/[controller]/Login")]
+        [Route("Login")]
+        [HttpPost]
         public async Task<ActionResult<Account>> Login([FromBody]Account account)
 		{
             var user = await _context.Accounts.Where(a => a.UserName == account.UserName && a.Password == EncryptPassword(account.Password)).FirstOrDefaultAsync();
-            if(user ==null)
+            if(user == null)
 			{
                 return NotFound();
 			}
@@ -132,7 +133,8 @@ namespace Chipn.Controllers
 
             //hash.ToString();
 
-            return hash.ToString();
+            return System.Text.Encoding.Default.GetString(hash);
+            
 		}
 
         private string VerifyPassword(string hash,string password)
