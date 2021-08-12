@@ -80,7 +80,7 @@ button {
 	margin-bottom: 50px;
 	min-width: 640px;
 	min-height: 360px;
-	max-height: 640px;
+	max-height: 500px;
 	/*480 - header & footer*/
   }
   .video {
