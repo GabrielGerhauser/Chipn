@@ -78,9 +78,9 @@ button {
 	text-align: center;
 	background-color: lightblue;
 	margin-bottom: 50px;
-	min-width: 640px;
-	min-height: 360px;
-	max-height: 500px;
+	min-width: 1240px;
+	
+	max-width: 2000px;
 	/*480 - header & footer*/
   }
   .video {
@@ -121,3 +121,16 @@ button {
   line-height: 0.9;
   text-align: center;
 }
+/* #account{
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: rgba(170, 133, 57, 0.7);
+		z-index: 9998;
+		color: #ffffcc; 
+		background-image: url("../images/image.png");
+		background-repeat: no-repeat;
+		align-items: center;
+} */
