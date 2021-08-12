@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,32 +7,29 @@
     <link rel="stylesheet" href="css/styles.css">
     <title>Chip'n</title>
 </head>
-
+<!--<body class="hero" id="text_conty">-->
 <body>
-
-    <header id="header">
+    <audio id="myAudio">
+        <source src='./sounds/lit.mp3' type="audio/mp3">
+    </audio>
+    <div class="content">
+        <video class="video" width=50 height=60 autoplay muted loop>
+            <source src="./videos/Chipn-heading-Amination (1).mp4" type="video/mp4">
+        </video>
+    </div>
+    <header id="site-header">
         <h1 class="head"></h1>
     </header>
     <div class="container">
-        <main>
-            <h1 class="slogan">YOU LOSE PAY ME!!🖕</h1>
-            <hr />
-
-            <div id="stage" class="perspective-on">
-                <div id="rotate">
-                    <div id="ring1" class="ring"></div>
-                    <div id="ring2" class="ring"></div>
-                    <div id="ring3" class="ring"></div>
-                    <div id="ring4" class="ring"></div>
-                    <div id="ring5" class="ring"></div>
-                </div>
-            </div>
-                    <div><button id="control">Start</button></div>
-
+        <main style="text-align:center">
+            <h1 class="phrase">Welcome to Chip'n</h1>
+            <h2 class="phrase">A Lit Ministries casino.</h2>
+            <h3 class="phrase"> > Page to land on < </h3>
+                    <h4 class="phrase" id="litty">It's <img src="./games/slots/images/Lit.png" width="35px"
+                            style="position:relative;top:3px" /></h4>
         </main>
     </div>
-    <footer id="footer"></footer>
-
+    <footer id="site-footer"></footer>
     <script src="main.js"></script>
 </body>
 

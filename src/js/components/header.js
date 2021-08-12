@@ -1,15 +1,12 @@
-const headertext = document.querySelector("#header");
+import * as ACCOUNT from "./account";
+import nav from "./nav";
 
+const headerContent = document.querySelector("#site-header");
 
 export default function header() {
-    headertext.innerHTML = `
-    <nav> 
-        <ol>
-            <li id="slotNav" class= "gamenav">Slots</li>
-            <li id="blackjackNav" class= "gamenav">Blackjack</li>
-            <li id="rouletteNav" class= "gamenav">High Stakes Roulette</li>
-            <li id="crapsNav" class= "gamenav">CRUD Craps 💩</li>
-        </ol>
-    </nav>
-    `;
+    headerContent.appendChild(ACCOUNT.createAccountDiv());
+    headerContent.appendChild(nav());
+    headerContent.appendChild(document.createElement("hr"));
+    ACCOUNT.populateAccountDiv();
+    ACCOUNT.displayAccountForms();
 }
