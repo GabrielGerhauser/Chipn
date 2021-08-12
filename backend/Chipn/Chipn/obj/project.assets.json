@@ -9249,19 +9249,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mrdee\\.nuget\\packages\\": {}
+    "C:\\Users\\Student\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mrdee\\source\\repos\\Chipn\\backend\\Chipn\\Chipn\\Chipn.csproj",
+      "projectUniqueName": "C:\\Users\\Student\\source\\repos\\Chipn\\backend\\Chipn\\Chipn\\Chipn.csproj",
       "projectName": "Chipn",
-      "projectPath": "C:\\Users\\mrdee\\source\\repos\\Chipn\\backend\\Chipn\\Chipn\\Chipn.csproj",
-      "packagesPath": "C:\\Users\\mrdee\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mrdee\\source\\repos\\Chipn\\backend\\Chipn\\Chipn\\obj\\",
+      "projectPath": "C:\\Users\\Student\\source\\repos\\Chipn\\backend\\Chipn\\Chipn\\Chipn.csproj",
+      "packagesPath": "C:\\Users\\Student\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Student\\source\\repos\\Chipn\\backend\\Chipn\\Chipn\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\mrdee\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Student\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9342,7 +9342,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }
