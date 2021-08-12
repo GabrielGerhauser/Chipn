@@ -1,4 +1,3 @@
-
 body {
   margin: 0;
   background: #72c0c3;
@@ -6,7 +5,7 @@ body {
   cursor: pointer;
   background-image: url("./images/background.png");
   background-size: 100px;
-  
+  height: 100%;
 }
 #slotMachine{
   display:flex;
@@ -111,7 +110,8 @@ body {
     font-family: "Fredoka One", cursive;
     background-color: rgba(0, 0, 0, 0.5);
     margin-left: 15px;
-    color:white
+    color:white;
+    position: absolute;
   } 
 .instructions {
   width: 100%;
@@ -119,9 +119,13 @@ body {
   text-align: center;
   margin-top: 20px;
 }
-
-
-
+#userChips{
+  position: sticky;
+  top: 0px;
+  color:beige;
+  font-size: 20pt;
+  text-align: right;
+}
 *, *::after, *::before{
   box-sizing: border-box;
 }
@@ -138,7 +142,6 @@ body {
   width:500px;
   max-width:80%;
 }
-
 .modal.active{
   transform: translate(-50%, -50%) scale(1);
 }
@@ -181,63 +184,61 @@ body {
 }
 /* aimated arm
 #arm {
-	BASE 
-	position: relative;
-	top: 10px;
-	left: 10px;
-	cursor: pointer;
-	width: 60px;
-	height: 80px;
-	border-radius: 10% / 50%;
-	background-color: #666;
-	@include twoLinearGradients((left, hsla(0,0%,0%,.3) 0%, hsla(0,0%,0%,0) 15%, hsla(0,0%,100%,0) 50%, hsla(0,0%,0%,0) 85%, hsla(0,0%,0%,.3)),(top, #333 0%, #666 10%, #999 30%, hsla(0,0%,100%,.8) 60%, #999 70%, #666 90%, #333 100%));
-	&:before {
-		 POLE 
-		content: '';
-		position: absolute;
-		top: -40px;
-		left: 16px;
-		width: 16px;
-		height: 70px;
-		border-radius: 8px;
-		box-shadow: 0px 2px 0px #333;
-		background-color: #999;
-		@include rotate(-10deg);
-		@include linearGradient(left, #666 0%, hsla(0,0%,100%,.7) 50%, #666 100%);
-		background-image: linear-gradient(to right, #666 0%, hsla(0,0%,100%,.7) 50%, #666 100%);
-		@include transition($duration:.5s);
-	}
-	&:after {
-		 BALL 
-		content: '';
-		position: absolute;
-		top: -70px;
-		left: -4px;
-		width: 40px;
-		height: 40px;
-		border-radius: 100%;
-		background-color: $red;
-		border: 2px solid darken($red, 5%);
-		@include boxSizing;
-		@include radialGradient(50% 40%, closest-corner, hsla(0,0,100%,.5), hsla(0,0%,100%,0));
-		@include transition($duration:.5s);
-	}
+    BASE 
+    position: relative;
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
+    width: 60px;
+    height: 80px;
+    border-radius: 10% / 50%;
+    background-color: #666;
+    @include twoLinearGradients((left, hsla(0,0%,0%,.3) 0%, hsla(0,0%,0%,0) 15%, hsla(0,0%,100%,0) 50%, hsla(0,0%,0%,0) 85%, hsla(0,0%,0%,.3)),(top, #333 0%, #666 10%, #999 30%, hsla(0,0%,100%,.8) 60%, #999 70%, #666 90%, #333 100%));
+    &:before {
+         POLE 
+        content: '';
+        position: absolute;
+        top: -40px;
+        left: 16px;
+        width: 16px;
+        height: 70px;
+        border-radius: 8px;
+        box-shadow: 0px 2px 0px #333;
+        background-color: #999;
+        @include rotate(-10deg);
+        @include linearGradient(left, #666 0%, hsla(0,0%,100%,.7) 50%, #666 100%);
+        background-image: linear-gradient(to right, #666 0%, hsla(0,0%,100%,.7) 50%, #666 100%);
+        @include transition($duration:.5s);
+    }
+    &:after {
+         BALL 
+        content: '';
+        position: absolute;
+        top: -70px;
+        left: -4px;
+        width: 40px;
+        height: 40px;
+        border-radius: 100%;
+        background-color: $red;
+        border: 2px solid darken($red, 5%);
+        @include boxSizing;
+        @include radialGradient(50% 40%, closest-corner, hsla(0,0,100%,.5), hsla(0,0%,100%,0));
+        @include transition($duration:.5s);
+    }
 }
 #arm.clicked {
-	&:before {
-		top: -20px;
-		left: 20px;
-		@include transform(rotate3d(100,10,0,180deg));
-		@include origin(0% 100%);
-		@include transition($duration:.5s);
-	}
-	&:after {
-		top: 90px;
-		@include transition($duration:.5s);
-	}
+    &:before {
+        top: -20px;
+        left: 20px;
+        @include transform(rotate3d(100,10,0,180deg));
+        @include origin(0% 100%);
+        @include transition($duration:.5s);
+    }
+    &:after {
+        top: 90px;
+        @include transition($duration:.5s);
+    }
 } */
-
-
   
 /* 
 $borderCol: #1e1e1e;
@@ -258,15 +259,12 @@ body {
   align-items: center;
   justify-items: center;
   justify-content: center;
-
-
   .title {
     font-family: "Fredoka One", cursive;
     font-size: 3rem;
     color: lighten(#edfaf9 10%);
     text-decoration: underline;
   }
-
   .money-container {
     position: relative;
     margin-bottom: 0.5rem;
@@ -277,7 +275,6 @@ body {
       display: inline-flex;
       top: 1rem;
       font-weight: bold;
-
       .change {
         color: #044600;
         padding-left: 0.5rem;
@@ -334,22 +331,18 @@ body {
       &:first-child {
         border-right: solid $borderCol 3px;
       }
-
       &:last-child {
         border-left: solid $borderCol 3px;
       }
-
       .reel-item {
         font-size: 3rem;
         animation-duration: 0.1s;
         animation-name: slidein;
-
         &.deactivate {
           animation-duration: 0.1s;
           animation-name: slideOut;
           animation-fill-mode: forwards;
         }
-
         &.win {
           animation: winFlashReels 1s infinite;
           border-radius: 50%;
@@ -366,7 +359,6 @@ body {
       border-bottom: 10px solid transparent;
       border-left: 15px solid $borderCol;
     }
-
     &:after {
       position: absolute;
       content: "";
@@ -379,7 +371,6 @@ body {
       border-right: 15px solid $borderCol;
     }
   }
-
   .info {
     padding-top: 1rem;
     padding-bottom: 3rem;
@@ -390,7 +381,6 @@ body {
       text-align: center;
       font-family: "Fredoka One", cursive;
     }
-
     .prize-table {
       width: 320px;
       margin-left: auto;
@@ -407,7 +397,6 @@ body {
       .prize-item {
         opacity: 0.4;
         margin-bottom: 0.2rem;
-
         &.active {
           opacity: 1;
           animation: winFlashPrizeTable 1s infinite;
@@ -421,32 +410,27 @@ body {
     font-size: 0.1rem;
     opacity: 0;
   }
-
   to {
     font-size: 3rem;
     opacity: 1;
   }
 }
-
 @keyframes slideOut {
   to {
     height: 0;
     font-size: 0.1rem;
     opacity: 0;
   }
-
   from {
     height: 3rem;
     font-size: 3rem;
     opacity: 1;
   }
 }
-
 @keyframes winFlashReels {
   0% {
     background-color: rgba(240, 240, 240, 0.2);
   }
-
   50% {
     background-color: rgba(20, 200, 20, 1);
   }
@@ -454,12 +438,10 @@ body {
     background-color: rgba(240, 240, 240, 0.2);
   }
 }
-
 @keyframes winFlashPrizeTable {
   0% {
     opacity: 0.2;
   }
-
   50% {
     opacity: 1;
   }
@@ -467,12 +449,10 @@ body {
     opacity: 0.2;
   }
 }
-
 @keyframes slideinLeft {
   to {
     font-size: 1rem;
   }
-
   from {
     font-size: 0rem;
   }
