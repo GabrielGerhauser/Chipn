@@ -21,7 +21,8 @@ namespace Chipn.Controllers
             _context = context;
         }
 
-        [Route("api/[controller]/Login")]
+        [Route("Login")]
+        [HttpPost]
         public async Task<ActionResult<Account>> Login([FromBody]Account account)
 		{
             var user = await _context.Accounts.Where(a => a.UserName == account.UserName && a.Password == EncryptPassword(account.Password)).FirstOrDefaultAsync();
