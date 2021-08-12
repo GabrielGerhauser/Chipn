@@ -13,7 +13,7 @@ export default function nav() {
             <a href="/games/roulette/roulette.html">High Stakes Roulette</a>
         </nav_tag>
         <nav_tag id="crapsNav">
-            <a href="/games/craps/craps.html">Craps 💩</a>
+            <a href="/games/craps/craps.html">CRUD Craps 💩</a>
         </nav_tag>
     `;
     return navBar;
