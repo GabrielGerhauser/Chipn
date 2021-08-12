@@ -1,5 +1,5 @@
 import {accountURL} from "../api/actions";
-
+import {setCookie} from "../utilities/cookie";
 
 export function displaySignupForm(){
     // const signupForm = document.createElement("form");
@@ -7,19 +7,17 @@ export function displaySignupForm(){
     // signupForm.style.display = "absolute";
     // signupForm.innerHTML 
     const signupForm = `
-        <form id="signup-form">
-            <label for="signup-username">Username: </label>
-            <input type="text" id="CreateAccount_UserName" />
-            <label for="signup-email">Email: </label>
-            <input type="email" id="CreateAccount_Email" />
-            <label for="signup-age">Age: </label>
-            <input type="number" id="CreateAccount_Age" />
-            <label for="signup-password">Password: </label>
-            <input type="password" id="CreateAccount_Password" />
-            <input type="hidden" id="CreateAccount_ChipCount" value="500">
-            <button id="signup-cancel">Cancel</button>
-            <button id="signup-submit" type="submit">Submit</button>
-        </form>
+        <label for="signup-username">Username: </label>
+        <input type="text" id="CreateAccount_UserName" />
+        <label for="signup-email">Email: </label>
+        <input type="email" id="CreateAccount_Email" />
+        <label for="signup-age">Age: </label>
+        <input type="number" id="CreateAccount_Age" />
+        <label for="signup-password">Password: </label>
+        <input type="password" id="CreateAccount_Password" />
+        <input type="hidden" id="CreateAccount_ChipCount" value="500">
+        <button id="signup-cancel">Cancel</button>
+        <button id="signup-submit">Submit</button>
     `;
     return signupForm;
 }
@@ -40,10 +38,7 @@ export function createAccount_Submit()
         },
         body:JSON.stringify(RequestBody)
     }).then(response => response.json()).then(data => {
-        setCookie("UserName", data.UserName, .1);
-        setCookie("UserId", data.Id, .1);
-        //document.cookie = 'UserName='+data.UserName+';';
-        //const username = getCookie('username');
-        //getCookie();
+        setCookie("UserId", data.id, .1);
+        location.reload();
     });
 }

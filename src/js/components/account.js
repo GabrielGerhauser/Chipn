@@ -1,13 +1,9 @@
-
-
 import * as FETCH from "../api/actions";
 import {displayLoginForm,loginAccount_Submit} from "./login";
 import {displaySignupForm,createAccount_Submit} from "./signup";
-import {getCookie} from "../utilities/cookie";
+import {getCookie, setCookie, deleteCookie} from "../utilities/cookie";
 
-let userAccount;
-//let userAccount = { Id : "1", UserName : "ChipnAdministrator", ChipCount : "5000", Email : "admin@chipn.gov", Password : "NoneOfYourBusiness", Age : "21" };
-// let userId = userAccount.Id;
+let accountId;
 
 export function createAccountDiv() {
     let accountDiv = document.createElement("div");
@@ -18,23 +14,29 @@ export function createAccountDiv() {
 }
 
 export function populateAccountDiv() {
-    userAccount=getCookie("UserId");
+    accountId = getCookie("UserId");
     const accountDiv = document.getElementById("account");
-    if(userAccount == null)
+
+    if(accountId == null || accountId == undefined || accountId == "")
     {
         accountDiv.innerHTML = `
             <button id="account-login">Log In</button>
             <button id="account-signup">Sign Up</button>
         `;
-        // return accountDiv;
     }
     else
     {
-        FETCH.getAccount(userAccount, data => {
+        FETCH.getAccount(accountId, data => {
             accountDiv.innerHTML =`
             Name: ${data.userName}<br />
-            Chip Count: ${data.chipCount}
+            Chip Count: ${data.chipCount}<br />
+            <button id="logout">Logout</button>
             `;
+            const logoutButton = document.getElementById("logout");
+            logoutButton.addEventListener("click", () => {
+                deleteCookie("UserId");
+                location.reload();
+            });
         });
     }
 }
