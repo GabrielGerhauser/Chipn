@@ -11,6 +11,7 @@ export function createAccountDiv() {
     accountDiv.style.float = "right";
     accountDiv.innerHTML = " ";
     return accountDiv;
+    
 }
 
 export function populateAccountDiv() {
