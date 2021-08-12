@@ -25,6 +25,7 @@ export function getCookie(name) {
 //https://plainjs.com/javascript/utilities/set-cookie-get-cookie-and-delete-cookie-5/
 export function getCookie(name) {
     var v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+    console.log(v);
     return v ? v[2] : null;
 }
 export function setCookie(name, value, days) {

@@ -1,5 +1,5 @@
 import {accountURL} from "../api/actions";
-
+import {setCookie} from "../utilities/cookie";
 
 export function displaySignupForm(){
     // const signupForm = document.createElement("form");
@@ -26,6 +26,7 @@ export function displaySignupForm(){
 
 export function createAccount_Submit()
 {
+    console.log("WTF : " + CreateAccount_UserName.value);
     let RequestBody={
         UserName:CreateAccount_UserName.value,
         Email:CreateAccount_Email.value,
@@ -40,6 +41,7 @@ export function createAccount_Submit()
         },
         body:JSON.stringify(RequestBody)
     }).then(response => response.json()).then(data => {
+        console.log(data.UserName + " | " + data.Id)
         setCookie("UserName", data.UserName, .1);
         setCookie("UserId", data.Id, .1);
         //document.cookie = 'UserName='+data.UserName+';';

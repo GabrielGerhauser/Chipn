@@ -3,7 +3,7 @@
 import * as FETCH from "../api/actions";
 import {displayLoginForm,loginAccount_Submit} from "./login";
 import {displaySignupForm,createAccount_Submit} from "./signup";
-import {getCookie} from "../utilities/cookie";
+import {getCookie, setCookie} from "../utilities/cookie";
 
 let userAccount;
 //let userAccount = { Id : "1", UserName : "ChipnAdministrator", ChipCount : "5000", Email : "admin@chipn.gov", Password : "NoneOfYourBusiness", Age : "21" };
@@ -19,6 +19,7 @@ export function createAccountDiv() {
 
 export function populateAccountDiv() {
     userAccount=getCookie("UserId");
+    console.log(getCookie("UserId"));
     const accountDiv = document.getElementById("account");
     if(userAccount == null)
     {

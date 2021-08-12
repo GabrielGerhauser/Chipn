@@ -132,7 +132,8 @@ namespace Chipn.Controllers
 
             //hash.ToString();
 
-            return hash.ToString();
+            return System.Text.Encoding.Default.GetString(hash);
+            
 		}
 
         private string VerifyPassword(string hash,string password)
