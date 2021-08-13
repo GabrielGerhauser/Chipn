@@ -66,18 +66,10 @@ function comeOutRoll() {
 
   // if rollTotal = 7 or 11; Player wins
   if (rollTotal === 7 || rollTotal === 11) {
-    console.log('You won!');
-    winCount++;
-    gameCount++;
-    elWinOrLoss.innerHTML = 'You Won!';
-
+    Win();
     // cash += betField;
   } else if (rollTotal === 2 || rollTotal === 3 || rollTotal === 12) {
-    console.log('You lost!');
-    lossCount++;
-    gameCount++;
-    elWinOrLoss.innerHTML = 'LOSER!';
-
+    Lose();
     // cash -= betField;
   } else {
     // sets the point and changes button display
@@ -119,23 +111,15 @@ function pointRoll() {
 
   // if player rolls a 7, player loses
   if (rollTotal === 7) {
-    console.log('LOSER');
     thePoint = 0;
-    lossCount++;
-    gameCount++;
-    elWinOrLoss.innerHTML = 'Loser!';
-
+    Lose();
     // cash -= betField;
     elComeOut.style.display = 'block';
     elPointRoll.style.display = 'none';
 
   } else if (rollTotal === thePoint) {
     // If player rolls the point; player wins
-
-    console.log('you won!');
-    winCount++; // updates win count
-    gameCount++;
-    elWinOrLoss.innerHTML = 'You Won!';
+    Win();
 
     // cash += betField;
     thePoint = 0;// resests the point
@@ -157,6 +141,19 @@ function winLossCount() {
   // Update win and loss count
   elCrapsLosses.innerHTML = 'Losses: ' + lossCount;
   elCrapsWins.innerHTML   = 'Wins: ' + winCount;
-
   // document.getElementById('score').innerHTML = 'CASH:' + cash;
+}
+function Win()
+{
+  console.log('you won!');
+  winCount++; // updates win count
+  gameCount++;
+  elWinOrLoss.innerHTML = 'You Won!';
+}
+function Lose()
+{
+  console.log('You lost!');
+  lossCount++;
+  gameCount++;
+  elWinOrLoss.innerHTML = 'LOSER!';
 }
