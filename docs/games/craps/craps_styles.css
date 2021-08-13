@@ -100,10 +100,14 @@ html {
       float: left; 
       margin: 0;
     }
+    .w3-modal{
+      height:200%; /*200% for static with blackspace below, auto for no blackspace below but dynamic.*/
+    }
     .w3-container{
       background-color: cadetblue;
       opacity:75%;
       color: black;
+      height:auto;
     }
     #game-start{
       font-family: 'Lobster', cursive;
